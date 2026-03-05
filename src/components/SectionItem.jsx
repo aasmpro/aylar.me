@@ -15,7 +15,7 @@ export const SectionItem = ({
   const stg = useContext(SettingsContext);
 
   return (
-    <div className="py-2">
+    <div className={`${section==="Skills"?"-mb-2":"py-2"}`}>
       <div className="flex sm:flex-row flex-col justify-between items-start">
         <div>
           <div className={`${section==="Skills"?"text-xl":"text-2xl"} font-bold text-${stg.theme_color}-700`}>

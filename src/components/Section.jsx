@@ -16,7 +16,7 @@ export const Section = ({ id, title, icon, items }) => {
         />
         <TransformText>{title}</TransformText>
       </div>
-      <div className={`${title==="Skills"?"sm:grid sm:grid-cols-2":""}`}>
+      <div className={`${title==="Skills"?"sm:grid sm:grid-cols-2 pt-2":""}`}>
         {items?.map((item) => (
           <SectionItem section={title} {...item}/>
         ))}

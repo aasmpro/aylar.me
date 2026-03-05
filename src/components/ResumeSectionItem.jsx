@@ -15,15 +15,15 @@ export const ResumeSectionItem = ({
   const stg = useContext(SettingsContext);
 
   return (
-    <div className="py-0.5">
+    <div className={`${section==="Skills"?"":"py-2"}`}>
       <div className="flex flex-row justify-between items-start">
         <div>
-          <div className={`${section==="Skills"?"text-sm":"text-lg"} font-extrabold text-${stg.resume_color}-700`}>
+          <div className={`${section==="Skills"?"text-xs":""} font-extrabold text-${stg.resume_color}-700`}>
             {title}
           </div>
-          <div className="text-sm font-bold -mt-0.5 text-neutral-900">{association}</div>
+          <div className="text-[0.75rem] font-bold -mt-0.5 text-neutral-900">{association}</div>
         </div>
-        <div className="text-right text-xs -space-y-0.5">
+        <div className="text-right text-[0.6rem] -space-y-0.5">
           <div className={`text-${stg.resume_color}-700`}>{from_date}</div>
           <div className={`text-${stg.resume_color}-700`}>{to_date}</div>
           <div className={`text-${stg.resume_color}-700`}>{location}</div>
@@ -31,14 +31,14 @@ export const ResumeSectionItem = ({
       </div>
       <div>
         {description ? (
-          <div className="pt-0.5">
+          <div className="pt-0.5 text-xs">
             {description.map((line) => (
               <p>{line}</p>
             ))}
           </div>
         ) : null}
         {bullets ? (
-          <ul className="list-disc pl-5 pt-1">
+          <ul className="list-disc pl-5 pt-1 text-xs">
             {bullets.map((item) => (
               <li>{item}</li>
             ))}

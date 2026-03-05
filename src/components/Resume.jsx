@@ -118,24 +118,23 @@ export const Resume = () => {
       <div className="flex flex-row flex-wrap items-start justify-between">
         <div className="flex flex-row flex-wrap items-start justify-start">
           <div
-            className={`w-[120px] h-[120px] min-w-[120px] min-h-[120px] max-w-[120px] max-h-[120px] bg-${stg.resume_color}-500 border-4 border-${stg.resume_color}-500 rounded-full overflow-hidden flex flex-col justify-center`}>
+            className={`w-[100px] h-[100px] min-w-[100px] min-h-[100px] max-w-[100px] max-h-[100px] bg-${stg.resume_color}-500 border-2 border-black rounded-full overflow-hidden flex flex-col justify-center`}>
             <img
-              className="w-[120px] h-[120px] min-w-[120px] min-h-[120px] max-w-[120px] max-h-[120px] object-cover"
+              className="w-[100px] h-[100px] min-w-[100px] min-h-[100px] max-w-[100px] max-h-[100px] object-cover"
               alt=" "
               src={getURL(profile_image?.url)}
             />
           </div>
           <div className="ml-6 mt-3">
-            <div className="text-3xl font-extrabold">{profile?.first_name}</div>
-            <div className="text-3xl font-extrabold">{profile?.last_name}</div>
-            <div className="text-xl font-bold mt-1">{cover_letter?.title}</div>
+            <div className="text-2xl font-extrabold">{profile?.first_name} {profile?.last_name}</div>
+            <div className="text font-bold mt-1 w-[60%]">{cover_letter?.title}</div>
           </div>
         </div>
-        <div className="text-right text-sm mt-3">
+        <div className="text-right text-[0.65rem] mt-3">
           {links?.map((item) => (
             <div>
               <a
-                className={`text-${stg.resume_color}-700 font-bold`}
+                className={`text-${stg.resume_color}-700 text-[0.65rem] font-bold`}
                 href={item.url}>
                 {item.title}
               </a>
@@ -144,7 +143,7 @@ export const Resume = () => {
           ))}
           {profile?.birthday ? (
             <div>
-              <span className={`text-${stg.resume_color}-700 font-bold`}>
+              <span className={`text-${stg.resume_color}-700 text-[0.65rem] font-bold`}>
                 {profile?.birthday}
               </span>
               <i
@@ -154,23 +153,32 @@ export const Resume = () => {
           ) : null}
           {profile?.nationality ? (
             <div>
-              <span className={`text-${stg.resume_color}-700 font-bold`}>
+              <span className={`text-${stg.resume_color}-700 text-[0.65rem] font-bold`}>
                 {profile?.nationality}
               </span>
               <i className={`fas fa-flag ml-2 text-${stg.resume_color}-700`} />
             </div>
           ) : null}
+          {languages?.map((item) => (
+            <div>
+              <span
+                className={`text-${stg.resume_color}-700 text-[0.65rem] font-bold`}>
+                {item.title}<span className="font-bold"> | {item.level}</span>
+              </span>
+              <i className={`fas fa-language ml-2 text-${stg.resume_color}-700`} />
+            </div>
+          ))}
         </div>
       </div>
-      <div className="border-b-2 my-4 border-black"></div>
+      <div className="border-b-[1px] my-5 border-black"></div>
       {cover_letter?.description?.length > 0 ? (
         <>
-          <div>
+          <div className="text-xs">
             {cover_letter?.description?.map((line) => (
               <p>{line}</p>
             ))}
           </div>
-          <div className="border-b-2 my-4 border-black"></div>
+          <div className="border-b-[1px] my-5 border-black"></div>
         </>
       ) : null}
       {sections?.map((section) => (
@@ -180,23 +188,23 @@ export const Resume = () => {
           items={section.items}
         />
       ))}
-      <div className="py-1.5">
-        <div className="text-xl font-black pb-1">
-          <i className="fas fa-language mr-3 text-[20px] select-none" />
+      {/* <div className="py-1.5">
+        <div className="font-black pb-1">
+          <i className="fas fa-language mr-2 text-[13px] select-none" />
           Languages
         </div>
         <div className="flex flex-row">
           {languages?.map((item) => (
             <div className="mr-16">
               <div
-                className={`text-lg font-extrabold text-${stg.resume_color}-700`}>
+                className={`font-extrabold text-${stg.resume_color}-700`}>
                 {item.title}
               </div>
-              <div>{item.level}</div>
+              <div className="text-[0.75rem]">{item.level}</div>
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
