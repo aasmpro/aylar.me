@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-
+import { isSkills, isCertificates } from "../core/utils";
 import { SettingsContext } from "../context/SettingsContext";
 
 export const ResumeSectionItem = ({
@@ -15,10 +15,10 @@ export const ResumeSectionItem = ({
   const stg = useContext(SettingsContext);
 
   return (
-    <div className={`${section==="Skills"?"":"py-2"}`}>
+    <div className={`${isSkills(section)||isCertificates(section)?"":"py-2"}`}>
       <div className="flex flex-row justify-between items-start">
         <div>
-          <div className={`${section==="Skills"?"text-xs":""} font-extrabold text-${stg.resume_color}-700`}>
+          <div className={`${isSkills(section)||isCertificates(section)?"text-sm":""} font-extrabold text-${stg.resume_color}-700`}>
             {title}
           </div>
           <div className="text-[0.75rem] font-bold -mt-0.5 text-neutral-900">{association}</div>
